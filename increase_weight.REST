@@ -1,0 +1,2 @@
+PATCH http://localhost:3000/techniques/66407a58c667bcefa22d3b7f
+Content-Type: application/json

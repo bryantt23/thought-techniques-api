@@ -24,6 +24,29 @@ app.get("/techniques", async (req, res) => {
     }
 })
 
+app.patch("/techniques/:id", async (req, res) => {
+    try {
+        await client.connect();
+        const collection = client.db(process.env.DB_NAME).collection(process.env.COLLECTION_NAME)
+        // Use the $inc operator to increment the weight by 1
+        const result = await collection.updateOne(
+            { _id: new ObjectId(req.params.id) },
+            { $inc: { weight: 1 } }  // Increment weight by 1
+        );
+        if (result.matchedCount === 0) {
+            return res.status(404).json({ message: "Technique not found" });
+        }
+        if (result.modifiedCount === 0) {
+            return res.status(304).json({ message: "Technique not modified" });
+        }
+        res.json(result);
+    } catch (error) {
+        console.log(error)
+    } finally {
+        await client.close()
+    }
+})
+
 app.get("/hello", (req, res) => {
     res.json({ message: "Hello world" })
 })
