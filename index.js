@@ -12,7 +12,7 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 app.get("/techniques", async (req, res) => {
     try {
         await client.connect();
-        const collection = client.db("thought-smasher").collection("techniques")
+        const collection = client.db(process.env.DB_NAME).collection(process.env.COLLECTION_NAME)
         const techniques = await collection.find({}).toArray()
         res.json(techniques)
     } catch (error) {
