@@ -4,7 +4,7 @@ require('dotenv').config();
 
 const app = express()
 app.use(express.json())
-const PORT = 3000
+const PORT = process.env.PORT || 3000;
 
 const uri = process.env.MONGODB_URI
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true })
