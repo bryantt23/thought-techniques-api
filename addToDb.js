@@ -4,19 +4,32 @@ require('dotenv').config();
 // Define an array of new techniques
 const newTechniques = [
     {
-        name: "Deep Breathing",
-        description: "Practice deep breathing to help reduce stress and improve focus.",
-        category: "Relaxation",
+        name: "Lefkoe Technique",
+        description: `Steps of the Decision Maker® Change Perspective Process
+1. Describe a situation that is upsetting you.
+2. What does it mean to you?
+3. Doesn’t it seem that ____________________ is the truth?
+[what it means to you (#2)]
+4. What are some alternative meanings? In other words, what else could the situation
+logically mean? (Elicit three or four)
+5. If there are other meanings that are just as reasonable, can you see that your original
+meaning is only a truth and not the truth? (Answer will be, yes)
+6. Did you ever see ________________________ in the world? (Answer will be, no)
+[the original meaning (#2)]
+7. Can you see that the events have no inherent meaning?
+That ___________________ doesn’t really mean anything? (Answer will be, yes)
+[the situation (#1)]
+8. State ____________________. Is it really the truth? (Answer will be, no)
+[the original meaning (#2)]
+9. Think about the situation. Does it still upset you? (Answer will be, no)
+
+As soon as you realize that you never saw your belief, it was only one
+interpretation of many, that you never saw it in the world, and that the situation that
+caused it has no inherent meaning, the belief disappears and will not return.`,
+        category: "Miscellaneous",
         weight: 1,
         createdAt: new Date()
     },
-    {
-        name: "Progressive Muscle Relaxation",
-        description: "Tense and then relax each muscle group sequentially to relax your entire body.",
-        category: "Relaxation",
-        weight: 1,
-        createdAt: new Date()
-    }
 ];
 
 const uri = process.env.MONGODB_URI;

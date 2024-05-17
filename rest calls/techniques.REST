@@ -1,0 +1,15 @@
+### Get techniques without sorting by weight
+GET http://localhost:3000/techniques
+Content-Type: application/json
+
+###
+
+### Get techniques sorted by weight in descending order
+GET http://localhost:3000/techniques?sort=desc
+Content-Type: application/json
+
+###
+
+### Get techniques sorted by weight in ascending order
+GET http://localhost:3000/techniques?sort=asc
+Content-Type: application/json

@@ -15,7 +15,16 @@ app.get("/techniques", async (req, res) => {
     try {
         await client.connect();
         const collection = client.db(process.env.DB_NAME).collection(process.env.COLLECTION_NAME)
-        const techniques = await collection.find({}).toArray()
+
+        let techniques
+        if (req.query.sort) {
+            const sort = req.query.sort === 'desc' ? -1 : 1
+            techniques = await collection.find({}).sort({ weight: sort }).toArray()
+        }
+        else {
+            techniques = await collection.find({}).toArray()
+        }
+
         res.json(techniques)
     } catch (error) {
         console.log(error)
